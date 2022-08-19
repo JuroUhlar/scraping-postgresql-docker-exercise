@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
       "target": "esnext",
-      "module": "commonjs", 
-      "rootDir": "./src",       
+      "module": "esnext", 
+      "moduleResolution": "node",
+      "rootDir": "./",       
       "declaration": false,                         
       "outDir": "./dist",                             
       "esModuleInterop": true,                            
@@ -13,5 +14,5 @@
       "strictFunctionTypes": true,                  
       "skipLibCheck": true                 
     },
-    "include": ["src"]
+    "include": ["src", "cypress"]
   }
