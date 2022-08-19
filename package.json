@@ -1,0 +1,21 @@
+{
+  "name": "scraping-postgresql-docker-exercise",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/JuroUhlar/scraping-postgresql-docker-exercise.git",
+  "author": "Juraj Uhlar <“juraj.uhlar@flowmon.com”>",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.6",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "tsc -W"
+  }
+}
