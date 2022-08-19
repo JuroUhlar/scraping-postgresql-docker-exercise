@@ -1,13 +1,17 @@
 import { Flat } from '../../src/types';
 
-describe('Scraping Sreality', () => {
-  it('for flat listings', () => {
-    const results: Flat[] = [];
+const nOfFlats = 500;
+const flatsPerPage = 20;
+const nPages = nOfFlats / flatsPerPage;
 
-    cy.visit('https://www.sreality.cz/en/search/for-sale/apartments');
+describe('Scraping Sreality for flat listings', () => {
+  const results: Flat[] = [];
 
-    cy.get('.dir-property-list > .property')
-      .each((flat) => {
+  for (let i = 1; i <= nPages; i++) {
+    it(`page ${i}`, () => {
+      cy.visit(`https://www.sreality.cz/en/search/for-sale/apartments?page=${i}`);
+
+      cy.get('.dir-property-list > .property').each((flat) => {
         const name = flat.find('span.name').text();
         const price = flat.find('span.norm-price').text();
         const location = flat.find('span.locality').text();
@@ -16,9 +20,12 @@ describe('Scraping Sreality', () => {
           imgUrls.push(img.getAttribute('src') || '');
         });
         results.push({ imgUrls, name, price, location });
-      })
-      .then(() => {
-        console.log(results);
       });
+    });
+  }
+
+  it('print results', () => {
+    console.log(results);
+    cy.writeFile('./data/flats.json', results, 'utf-8');
   });
 });
