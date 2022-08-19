@@ -25,6 +25,7 @@ describe('Scraping Sreality for flat listings', () => {
   }
 
   it('print results', () => {
+    cy.log('Scraped flats: ', results.length);
     console.log(results);
     cy.writeFile('./data/flats.json', results, 'utf-8');
   });
