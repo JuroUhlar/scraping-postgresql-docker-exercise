@@ -1,0 +1,8 @@
+.container {
+    display: grid;
+
+}
+
+.flat {
+    border: 1px solid gray;
+}

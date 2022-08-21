@@ -1,19 +1,22 @@
 {
-    "compilerOptions": {
-      "target": "esnext",
-      "module": "esnext", 
-      "moduleResolution": "node",
-      "rootDir": "./",
-      "baseUrl": ".",       
-      "declaration": false,                         
-      "outDir": "./dist",                             
-      "esModuleInterop": true,                            
-      "forceConsistentCasingInFileNames": true,            
-      "strict": true,                                  
-      "noImplicitAny": true,                        
-      "strictNullChecks": true,                   
-      "strictFunctionTypes": true,                  
-      "skipLibCheck": true                 
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "rootDir": "./",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*"]
     },
-    "include": ["src", "cypress"]
-  }
+    "declaration": false,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "skipLibCheck": true
+  },
+  "include": ["src", "cypress"],
+}
