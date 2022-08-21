@@ -1,4 +1,4 @@
-import { FlatDb } from './types';
+import { Flat } from './types';
 
 const N_PAGES = 25;
 
@@ -9,7 +9,7 @@ const paging = (page: number) => {
   `;
 };
 
-export const renderPage = (flats: FlatDb[], page: number): string => {
+export const renderPage = (flats: Flat[], page: number): string => {
   return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -32,6 +32,7 @@ export const renderPage = (flats: FlatDb[], page: number): string => {
                       <span class="name">${flat.name}</span>
                       <span class="price">${flat.price}</span>
                       <p class="location">${flat.location}</p>
+                      <p class="location">${flat.imgUrls[0]}</p>
                   </div>
               `;
             })

@@ -5,4 +5,4 @@ export type Flat = {
   imgUrls: string[];
 };
 
-export type FlatDb = Flat & { id: string };
+export type FlatDb = Omit<Flat, 'imgUrls'> & { id: string; images: string };

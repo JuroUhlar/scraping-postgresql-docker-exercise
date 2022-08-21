@@ -29,16 +29,9 @@ app.get('/:page?', async (req, res) => {
   const page: number = req.params.page ? Number(req.params.page) : 1;
   let pageOffset = (page - 1) * PAGE_SIZE;
   const response = await client.query(`SELECT * from flats LIMIT ${PAGE_SIZE} OFFSET ${pageOffset};`);
-  const flats = response.rows as FlatDb[];
-
-  // res.send({
-  //   flats: flats.map((flat) => ({
-  //     id: flat.id,
-  //     name: flat.name,
-  //     price: flat.price,
-  //     location: flat.location,
-  //   })),
-  // });
+  const flatsDb = response.rows as FlatDb[];
+  console.log(flatsDb);
+  const flats: Flat[] = flatsDb.map((flat) => ({ ...flat, imgUrls: JSON.parse(flat.images) }));
 
   res.send(renderPage(flats, page));
 });
