@@ -4,3 +4,5 @@ export type Flat = {
   location: string;
   imgUrls: string[];
 };
+
+export type FlatDb = Flat & { id: string };

@@ -1,11 +1,13 @@
 import { seedDatabase } from './seedDatabase.js';
 import express from 'express';
 import bodyParser from 'body-parser';
-import { Flat } from './types';
+import { Flat, FlatDb } from './types';
 import pg from 'pg';
 const { Client } = pg;
 
 // psql -h localhost -p 5432 -U postgres
+
+const PAGE_SIZE = 20;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,13 +21,18 @@ const client = new Client({
   host: 'postgres',
 });
 
-app.get('/', async (req, res) => {
-  const users = await client.query('SELECT * from flats;');
-
-  console.log('Get');
+app.get('/:page?', async (req, res) => {
+  let pageOffset = req.params.page ? (Number(req.params.page) - 1) * PAGE_SIZE : 0;
+  const response = await client.query(`SELECT * from flats LIMIT ${PAGE_SIZE} OFFSET ${pageOffset};`);
+  const flats = response.rows as FlatDb[];
 
   res.send({
-    flats: users.rows,
+    flats: flats.map((flat) => ({
+      id: flat.id,
+      name: flat.name,
+      price: flat.price,
+      location: flat.location,
+    })),
   });
 });
 

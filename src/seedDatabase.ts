@@ -18,7 +18,7 @@ export const seedDatabase = async (client: pg.Client) => {
     flatData.forEach(async ({ name, location, price, imgUrls }, index) => {
       await client.query(
         'INSERT INTO flats (name, price, location, images) VALUES ($1, $2, $3, $4)',
-        [name, location, price, JSON.stringify(imgUrls)],
+        [name, price, location, JSON.stringify(imgUrls)],
         (error) => {
           if (error) {
             console.log(error);
