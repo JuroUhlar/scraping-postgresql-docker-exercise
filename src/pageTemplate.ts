@@ -32,7 +32,7 @@ export const renderPage = (flats: Flat[], page: number): string => {
                       <span class="name">${flat.name}</span>
                       <span class="price">${flat.price}</span>
                       <p class="location">${flat.location}</p>
-                      <p class="location">${flat.imgUrls[0]}</p>
+                      <img class="flatImage" src="${flat.imgUrls[0]}" />
                   </div>
               `;
             })

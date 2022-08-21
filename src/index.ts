@@ -30,7 +30,6 @@ app.get('/:page?', async (req, res) => {
   let pageOffset = (page - 1) * PAGE_SIZE;
   const response = await client.query(`SELECT * from flats LIMIT ${PAGE_SIZE} OFFSET ${pageOffset};`);
   const flatsDb = response.rows as FlatDb[];
-  console.log(flatsDb);
   const flats: Flat[] = flatsDb.map((flat) => ({ ...flat, imgUrls: JSON.parse(flat.images) }));
 
   res.send(renderPage(flats, page));
@@ -38,7 +37,6 @@ app.get('/:page?', async (req, res) => {
 
 app.post('/flat', async (req, res) => {
   const { name, location, price, imgUrls }: Flat = req.body;
-  // `INSERT INTO flats (name, price, location, images) VALUES('Dom', '3 000 000 Kč', 'Praha', '["imageUrl.test.com"]');`;
   await client.query(
     'INSERT INTO flats (name, price, location, images) VALUES ($1, $2, $3, $4)',
     [name, price, location, imgUrls.toString()],
