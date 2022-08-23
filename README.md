@@ -7,3 +7,9 @@
 - [ ] and put everything to single docker-compose command so that I can just run "docker-compose up" in the Github repository and see the scraped ads on http://127.0.0.1:8080 page. 
 
 Use Typescript for implementation.
+
+
+## Dev Notes
+
+* Connect to db with psql: `psql -h localhost -p 5432 -U postgres`
+* Reset db: `sudo rm -rf pgdata`

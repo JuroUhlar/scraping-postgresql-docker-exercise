@@ -27,5 +27,7 @@ export const seedDatabase = async (client: pg.Client) => {
         },
       );
     });
+
+    console.log('Database seeded. App should be accesible on http://localhost:8080');
   }
 };
