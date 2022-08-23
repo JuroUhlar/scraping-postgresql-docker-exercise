@@ -4,8 +4,15 @@ const N_PAGES = 25;
 
 const paging = (page: number) => {
   return `
-    ${page - 1 > 0 ? `<a href="/${page - 1}">Previous page</a>` : ''}
-    ${page + 1 <= N_PAGES ? `<a href="/${page + 1}">Next page</a>` : ''}
+    <div class="paging">
+      ${page - 1 > 0 ? `<a href="/${page - 1}">⬅️ Previous page</a>` : ''}
+      <a href="/1">1</a>
+      <a href="/5">5</a>
+      <a href="/10">10</a>
+      <a href="/15">15</a>
+      <a href="/25">25</a>
+      ${page + 1 <= N_PAGES ? `<a href="/${page + 1}">Next page ➡️</a>` : ''}
+    </div>
   `;
 };
 

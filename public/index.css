@@ -97,5 +97,18 @@ body {
 h1 {
     text-align: center;
     margin-top: 75px;
-    margin-bottom: 75px;
+    margin-bottom: 25px;
+}
+
+.paging {
+    text-align: center;
+    padding: 25px;
+}
+
+.paging a {
+    margin: 10px;
+    line-height: 30px;
+    color: var(--purple);
+    text-decoration: none;
+    white-space: nowrap;
 }
