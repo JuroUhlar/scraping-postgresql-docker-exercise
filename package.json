@@ -1,7 +1,7 @@
 {
   "name": "scraping-postgresql-docker-exercise",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "https://github.com/JuroUhlar/scraping-postgresql-docker-exercise.git",
   "author": "Juraj Uhlar <“juraj.uhlar@flowmon.com”>",
   "license": "MIT",
