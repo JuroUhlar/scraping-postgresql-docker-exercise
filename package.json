@@ -30,7 +30,7 @@
     "start:dev": "nodemon --inspect=0.0.0.0:9229 dist/src/index.js",
     "build": "tsc",
     "build:watch": "tsc -w",
-    "cypress": "cypress open",
+    "cypress": "cypress open --e2e --browser chrome",
     "scrape-flats": "cypress run --spec 'cypress/e2e/scrape.cy.ts'"
   },
   "type": "module"
