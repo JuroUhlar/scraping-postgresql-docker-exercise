@@ -20,25 +20,27 @@ export const renderPage = (flats: Flat[], page: number): string => {
         <title>Flats for sale</title>
     </head>
     <body>
-        <h1>Flats for sale</h1>
-        <p>Test</p>
-
+      <div class="pageContainer">
+        <h1>🏠 Flats for sale</h1>
         ${paging(page)}
         <div class="container">
           ${flats
             .map((flat) => {
               return `
                   <div class="flat">
-                      <span class="name">${flat.name}</span>
-                      <span class="price">${flat.price}</span>
-                      <p class="location">${flat.location}</p>
                       <img class="flatImage" src="${flat.imgUrls[0]}" />
+                      <div class="text"> 
+                        <div class="name">${flat.name}</div>
+                        <div class="location">🗺️ ${flat.location}</div>
+                        <div class="price">💰 ${flat.price}</div>
+                      </div>
                   </div>
               `;
             })
             .join('')}
         </div>
         ${paging(page)}
+      </div>
     </body>
     </html>
   `;
