@@ -34,6 +34,7 @@ export const renderPage = (flats: Flat[], page: number): string => {
           ${flats
             .map((flat) => {
               return `
+                <a href="https://sreality.cz/${flat.link}" target="_blank">
                   <div class="flat">
                       <img class="flatImage" src="${flat.imgUrls[0]}" />
                       <div class="text"> 
@@ -42,6 +43,7 @@ export const renderPage = (flats: Flat[], page: number): string => {
                         <div class="price">💰 ${flat.price}</div>
                       </div>
                   </div>
+                </a>
               `;
             })
             .join('')}

@@ -31,7 +31,6 @@ sudo docker-compose up
 
 ## Potential further improvements
 
-* Scrape listing hrefs as well and make the flats actual links to Sreality (no idea why I didn't think of this sooner).
 * Corousel to see all images available.
 * Location links to Google Maps.
 * Basic sorting/filtering/search.

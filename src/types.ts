@@ -2,6 +2,7 @@ export type Flat = {
   name: string;
   price: string;
   location: string;
+  link: string;
   imgUrls: string[];
 };
 
